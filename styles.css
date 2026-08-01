@@ -329,6 +329,27 @@ h1 span {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.hero-info-card > p:not(.hero-info-small):not(.hero-info-quote) {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.hero-info-quote {
+  position: relative;
+  z-index: 1;
+  margin: 25px 0;
+  padding: 17px 20px;
+  border-left: 4px solid #ffffff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 17px;
+  font-weight: 800;
+  font-style: italic;
+}
+
 .hero-info-list {
   position: relative;
   z-index: 1;
@@ -591,80 +612,6 @@ h1 span {
   margin-top: 23px;
   color: var(--red);
   font-weight: 800;
-}
-
-/* OM OSS */
-
-.about-section {
-  background: var(--white);
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: stretch;
-  gap: 35px;
-}
-
-.about-box {
-  padding: 55px;
-  border-radius: 30px;
-  background: var(--light);
-}
-
-.about-box > p:not(.overline) {
-  color: var(--gray);
-}
-
-.about-box ul {
-  display: grid;
-  gap: 10px;
-  margin: 28px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.about-box li::before {
-  content: "✓";
-  margin-right: 10px;
-  color: var(--red);
-  font-weight: 900;
-}
-
-.red-quote {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 48px;
-  border-radius: 30px;
-  color: var(--white);
-  background: linear-gradient(145deg, var(--red), var(--red-dark));
-}
-
-.red-quote > span {
-  position: absolute;
-  top: -40px;
-  right: 25px;
-  color: rgba(255,255,255,.12);
-  font-family: Georgia, serif;
-  font-size: 220px;
-}
-
-.red-quote p {
-  position: relative;
-  z-index: 1;
-  font-size: 34px;
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-}
-
-.red-quote strong {
-  position: relative;
-  z-index: 1;
-  color: #FF9999;
 }
 
 /* GOOGLE + FACEBOOK */

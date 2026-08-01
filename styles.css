@@ -159,16 +159,6 @@ button {
   background: linear-gradient(135deg, #ffffff 10%, #fff4f6 100%);
 }
 
-.paint-shape {
-  position: absolute;
-  right: -170px;
-  top: -170px;
-  width: 540px;
-  height: 540px;
-  border-radius: 50%;
-  background: rgba(178, 13, 47, 0.08);
-}
-
 .hero-grid {
   position: relative;
   z-index: 1;
@@ -273,113 +263,92 @@ h1 span {
   color: var(--red);
 }
 
-.hero-card {
+
+.hero-info-card {
   position: relative;
-}
-
-.paint-wall {
-  position: relative;
-  min-height: 520px;
-  overflow: hidden;
-  border-radius: 38px 38px 38px 130px;
-  background:
-    linear-gradient(90deg, var(--red) 0 66%, #f2ece8 66% 100%);
-  box-shadow: var(--shadow);
-}
-
-.paint-wall::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(105deg, transparent 35%, rgba(255,255,255,.12) 36%, transparent 38%);
-}
-
-.paint-wall p {
-  position: absolute;
-  left: 38px;
-  bottom: 36px;
-  z-index: 2;
-  max-width: 230px;
+  padding: 55px;
+  border-radius: 36px;
   color: var(--white);
-  font-size: 26px;
-  font-weight: 900;
-  line-height: 1.15;
+  background: linear-gradient(
+    145deg,
+    #FF0000 0%,
+    #D90000 55%,
+    #A80000 100%
+  );
+  box-shadow: 0 25px 65px rgba(255, 0, 0, 0.22);
 }
 
-.paint-roller {
-  position: absolute;
-  top: 80px;
-  right: 55px;
-  width: 250px;
-  height: 310px;
-}
-
-.roller {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 150px;
-  height: 70px;
-  border: 14px solid #ece7e2;
-  border-radius: 18px;
-  background: var(--red);
-  box-shadow: inset 0 0 0 4px rgba(255,255,255,.2);
-}
-
-.roller-arm {
-  position: absolute;
-  right: 64px;
-  top: 67px;
-  width: 14px;
-  height: 135px;
-  border-radius: 8px;
-  background: #3b3b3f;
-}
-
-.roller-arm::after {
+.hero-info-card::before {
   content: "";
   position: absolute;
-  right: 0;
-  bottom: 0;
+  top: 25px;
+  right: 25px;
   width: 95px;
-  height: 14px;
-  border-radius: 8px;
-  background: #3b3b3f;
-  transform: rotate(-30deg);
-  transform-origin: right center;
+  height: 95px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.roller-handle {
+.hero-info-card::after {
+  content: "";
   position: absolute;
-  left: 43px;
-  bottom: 22px;
-  width: 42px;
-  height: 115px;
-  border-radius: 16px;
-  background: var(--black);
-  transform: rotate(29deg);
+  right: 80px;
+  bottom: 45px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.experience-card {
-  position: absolute;
-  right: -25px;
-  bottom: 35px;
-  display: grid;
-  padding: 18px 22px;
-  border-radius: 16px;
-  background: var(--white);
-  box-shadow: var(--shadow);
-}
-
-.experience-card strong {
-  color: var(--red);
-  font-size: 20px;
-}
-
-.experience-card span {
-  color: var(--gray);
+.hero-info-small {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+  color: #FFFFFF;
   font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.hero-info-card h2 {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  margin-bottom: 20px;
+  color: var(--white);
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.hero-info-card > p:not(.hero-info-small) {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-info-list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 11px;
+  margin: 28px 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hero-info-button {
+  position: relative;
+  z-index: 1;
+  color: #FF0000;
+  background: var(--white);
+}
+
+.hero-info-button:hover {
+  color: #A80000;
+  background: #FFF1F1;
 }
 
 /* SNABBINFO */
@@ -1087,23 +1056,6 @@ footer {
     font-size: clamp(46px, 15vw, 70px);
   }
 
-  .paint-wall {
-    min-height: 410px;
-    border-radius: 28px 28px 28px 90px;
-  }
-
-  .paint-roller {
-    top: 65px;
-    right: 20px;
-    transform: scale(.8);
-    transform-origin: top right;
-  }
-
-  .experience-card {
-    right: 12px;
-    bottom: 18px;
-  }
-
   .info-grid {
     grid-template-columns: 1fr;
   }
@@ -1179,17 +1131,21 @@ footer {
     gap: 7px;
   }
 
-  .paint-wall p {
-    left: 24px;
-    bottom: 25px;
-    font-size: 23px;
-  }
-
   .experience-card {
     top: 18px;
     bottom: auto;
   }
+   
+@media (max-width: 680px) {
+  .hero-info-card {
+    padding: 35px 25px;
+    border-radius: 25px;
+  }
 
+  .hero-info-card h2 {
+    font-size: 36px;
+  }
+}
   .contact-phone strong {
     font-size: 27px;
   }

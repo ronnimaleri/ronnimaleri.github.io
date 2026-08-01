@@ -4,15 +4,15 @@
    ========================================================= */
 
 :root {
-  --red: #e00000;
-  --red-dark: #a30000;
-  --red-light: #ffe8e8;
+  --red: #FF0000;
+  --red-dark: #B00000;
+  --red-light: #FFE5E5;
   --black: #1b1b1e;
   --gray: #696970;
   --light: #f7f5f4;
   --white: #ffffff;
   --border: #e5e1e1;
-  --shadow: 0 22px 60px rgba(42, 17, 22, 0.13);
+  --shadow: 0 22px 60px rgba(60, 0, 0, 0.15);
   --radius: 22px;
   --container: 1160px;
 }

@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Ronni Måleri | Målare i Sävsjö och på Höglandet</title>
-  <meta name="description" content="Ronni Måleri utför invändig och utvändig målning, fasadmålning, taktvätt, fasadtvätt och plattvätt i Sävsjö och på hela Höglandet. Gratis offert.">
+
+  <meta
+    name="description"
+    content="Ronni Måleri utför invändig och utvändig målning, fasadmålning, taktvätt, fasadtvätt och plattvätt i Sävsjö och på hela Höglandet. Gratis offert."
+  >
+
   <meta name="theme-color" content="#FF2929">
 
-  <!-- CSS-filen ligger i samma mapp som index.html -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Schema för Google och sökmotorer -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,7 +32,13 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
         "opens": "07:00",
         "closes": "18:00"
       }
@@ -42,35 +51,56 @@
 </head>
 
 <body>
+
+  <!-- HEADER -->
   <header class="header">
     <div class="container nav">
+
       <a class="logo" href="#start" aria-label="Ronni Måleri startsida">
         <span class="logo-icon">R</span>
+
         <span>
           <strong>Ronni Måleri</strong>
           <small>Sävsjö & hela Höglandet</small>
         </span>
       </a>
 
-      <button class="menu-button" aria-label="Öppna meny" aria-expanded="false">
-        <span></span><span></span><span></span>
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Öppna meny"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
-      <nav class="menu">
+      <nav class="menu" aria-label="Huvudmeny">
         <a href="#tjanster">Tjänster</a>
         <a href="#galleri">Våra jobb</a>
         <a href="#recensioner">Recensioner</a>
         <a href="#kontakt">Kontakt</a>
-        <a class="nav-button" href="tel:+46738613848">Ring 073-861 38 48</a>
+
+        <a class="nav-button" href="tel:+46738613848">
+          Ring 073-861 38 48
+        </a>
       </nav>
+
     </div>
   </header>
 
+
   <main>
+
+    <!-- HERO -->
     <section class="hero" id="start">
       <div class="container hero-layout">
+
         <div class="hero-text">
-          <p class="overline">Måleri i Sävsjö och på Höglandet</p>
+          <p class="overline">
+            Måleri i Sävsjö och på Höglandet
+          </p>
 
           <h1>
             Ett välgjort resultat<br>
@@ -94,211 +124,378 @@
           </div>
         </div>
 
+
+        <!-- HERO INFORMATION -->
         <div class="hero-info-card">
+
           <div class="hero-info-content">
-            <p class="hero-info-small">Så arbetar vi</p>
-            <h2>En smidig väg från första kontakt till färdig yta</h2>
+            <p class="hero-info-small">
+              Så arbetar vi
+            </p>
+
+            <h2>
+              En smidig väg från första kontakt till färdig yta
+            </h2>
+
             <p>
               Varje uppdrag planeras efter underlag, miljö och önskat uttryck.
               Det ger ett tryggare arbete och ett jämnare slutresultat.
             </p>
-
-            <a class="hero-contact-link" href="tel:+46738613848">
-              <span>Prata direkt med oss</span>
-              <strong>073-861 38 48 →</strong>
-            </a>
           </div>
 
+
           <div class="hero-process">
+
             <article>
               <span>01</span>
+
               <div>
                 <h3>Bedömning</h3>
-                <p>Vi går igenom ytor, skick och omfattning.</p>
+                <p>
+                  Vi går igenom ytor, skick och omfattning.
+                </p>
               </div>
             </article>
 
             <article>
               <span>02</span>
+
               <div>
                 <h3>Förberedelse</h3>
-                <p>Ytor skyddas, rengörs och förbereds noggrant.</p>
+                <p>
+                  Ytor skyddas, rengörs och förbereds noggrant.
+                </p>
               </div>
             </article>
 
             <article>
               <span>03</span>
+
               <div>
                 <h3>Färdigt arbete</h3>
-                <p>Vi avslutar med kontroll, städning och genomgång.</p>
+                <p>
+                  Vi avslutar med kontroll, städning och genomgång.
+                </p>
               </div>
             </article>
+
           </div>
         </div>
+
       </div>
     </section>
 
+
+    <!-- TJÄNSTER -->
     <section class="section services" id="tjanster">
       <div class="container services-shell">
+
         <div class="section-heading services-heading">
+
           <div>
             <p class="overline">Våra tjänster</p>
-            <h2>Rätt behandling för varje yta</h2>
+
+            <h2>
+              Rätt behandling för varje yta
+            </h2>
           </div>
 
           <p>
             Vi anpassar metod och material efter projektets förutsättningar,
             från rum och snickerier till fasader och markytor.
           </p>
+
         </div>
 
+
         <div class="service-grid">
+
           <article class="service-card">
             <span class="number">01</span>
+
             <h3>Invändig målning</h3>
-            <p>Väggar, tak och rum får en jämn finish med ett väl utfört grundarbete.</p>
+
+            <p>
+              Väggar, tak och rum får en jämn finish med ett väl utfört
+              grundarbete.
+            </p>
           </article>
+
 
           <article class="service-card featured">
             <span class="number">02</span>
+
             <h3>Fasadmålning</h3>
-            <p>Skyddande behandling och målning som förnyar huset och står emot väder.</p>
+
+            <p>
+              Skyddande behandling och målning som förnyar huset och står
+              emot väder.
+            </p>
           </article>
+
 
           <article class="service-card">
             <span class="number">03</span>
+
             <h3>Snickerier och detaljer</h3>
-            <p>Dörrar, lister, fönster och andra detaljer målas med precision.</p>
+
+            <p>
+              Dörrar, lister, fönster och andra detaljer målas med precision.
+            </p>
           </article>
+
 
           <article class="service-card">
             <span class="number">04</span>
+
             <h3>Tak- och fasadtvätt</h3>
-            <p>Smuts och påväxt avlägsnas skonsamt för att förbättra ytans skick.</p>
+
+            <p>
+              Smuts och påväxt avlägsnas skonsamt för att förbättra ytans
+              skick.
+            </p>
           </article>
+
 
           <article class="service-card">
             <span class="number">05</span>
+
             <h3>Plattvätt</h3>
-            <p>Marksten, gångar och uteplatser rengörs för ett fräschare helhetsintryck.</p>
+
+            <p>
+              Marksten, gångar och uteplatser rengörs för ett fräschare
+              helhetsintryck.
+            </p>
           </article>
+
 
           <article class="service-card">
             <span class="number">06</span>
+
             <h3>Förarbete och ytbehandling</h3>
-            <p>Tvätt, skrapning, spackling och grundning skapar en hållbar bas.</p>
+
+            <p>
+              Tvätt, skrapning, spackling och grundning skapar en hållbar bas.
+            </p>
           </article>
+
         </div>
 
-        <div class="services-cta">
-          <div>
-            <strong>Osäker på vilken behandling som behövs?</strong>
-            <span>Beskriv ytan så hjälper vi dig att hitta rätt lösning.</span>
-          </div>
-
-          <a class="button primary" href="tel:+46738613848">Kontakta Ronni Måleri</a>
-        </div>
       </div>
     </section>
 
 
-
+    <!-- GALLERI -->
     <section class="section gallery-section" id="galleri">
       <div class="container">
+
         <div class="section-heading gallery-heading">
+
           <div>
-            <p class="overline">Våra utförda jobb</p>
-            <h2>Se resultat från våra måleriprojekt</h2>
+            <p class="overline">
+              Våra utförda jobb
+            </p>
+
+            <h2>
+              Se resultat från våra måleriprojekt
+            </h2>
           </div>
+
           <p>
-            Klicka på en bild för att förstora den. Byt enkelt ut exempelbilderna
-            mot Ronni Måleris egna foton.
+            Klicka på en bild för att förstora den. Byt enkelt ut
+            exempelbilderna mot Ronni Måleris egna foton.
           </p>
+
         </div>
+
 
         <div class="gallery">
-          <button class="gallery-item large" data-image="bilder/jobb-1.svg" data-title="Fasadmålning">
-            <img src="bilder/jobb-1.svg" alt="Exempelbild för fasadmålning">
-            <span><small>Utvändigt</small>Fasadmålning</span>
+
+          <button
+            class="gallery-item large"
+            type="button"
+            data-image="bilder/jobb-1.svg"
+            data-title="Fasadmålning"
+          >
+            <img
+              src="bilder/jobb-1.svg"
+              alt="Exempelbild för fasadmålning"
+            >
+
+            <span>
+              <small>Utvändigt</small>
+              Fasadmålning
+            </span>
           </button>
 
-          <button class="gallery-item" data-image="bilder/jobb-2.svg" data-title="Invändig målning">
-            <img src="bilder/jobb-2.svg" alt="Exempelbild för invändig målning">
-            <span><small>Invändigt</small>Väggar och tak</span>
+
+          <button
+            class="gallery-item"
+            type="button"
+            data-image="bilder/jobb-2.svg"
+            data-title="Invändig målning"
+          >
+            <img
+              src="bilder/jobb-2.svg"
+              alt="Exempelbild för invändig målning"
+            >
+
+            <span>
+              <small>Invändigt</small>
+              Väggar och tak
+            </span>
           </button>
 
-          <button class="gallery-item" data-image="bilder/jobb-3.svg" data-title="Snickerimålning">
-            <img src="bilder/jobb-3.svg" alt="Exempelbild för målning av snickerier">
-            <span><small>Detaljarbete</small>Snickerimålning</span>
+
+          <button
+            class="gallery-item"
+            type="button"
+            data-image="bilder/jobb-3.svg"
+            data-title="Snickerimålning"
+          >
+            <img
+              src="bilder/jobb-3.svg"
+              alt="Exempelbild för målning av snickerier"
+            >
+
+            <span>
+              <small>Detaljarbete</small>
+              Snickerimålning
+            </span>
           </button>
 
-          <button class="gallery-item" data-image="bilder/jobb-4.svg" data-title="Fasadrenovering">
-            <img src="bilder/jobb-4.svg" alt="Exempelbild för fasadrenovering">
-            <span><small>Före och efter</small>Fasadrenovering</span>
+
+          <button
+            class="gallery-item"
+            type="button"
+            data-image="bilder/jobb-4.svg"
+            data-title="Fasadrenovering"
+          >
+            <img
+              src="bilder/jobb-4.svg"
+              alt="Exempelbild för fasadrenovering"
+            >
+
+            <span>
+              <small>Före och efter</small>
+              Fasadrenovering
+            </span>
           </button>
 
-          <button class="gallery-item" data-image="bilder/jobb-5.svg" data-title="Plattvätt">
-            <img src="bilder/jobb-5.svg" alt="Exempelbild för plattvätt">
-            <span><small>Rengöring</small>Plattvätt</span>
+
+          <button
+            class="gallery-item"
+            type="button"
+            data-image="bilder/jobb-5.svg"
+            data-title="Plattvätt"
+          >
+            <img
+              src="bilder/jobb-5.svg"
+              alt="Exempelbild för plattvätt"
+            >
+
+            <span>
+              <small>Rengöring</small>
+              Plattvätt
+            </span>
           </button>
+
         </div>
+
 
         <div class="gallery-note">
           <strong>Så lägger du in riktiga bilder:</strong>
-          Lägg fotona i mappen <code>bilder</code> och byt filnamnen i HTML-koden,
-          exempelvis från <code>jobb-1.svg</code> till <code>jobb-1.jpg</code>.
+
+          Lägg fotona i mappen <code>bilder</code> och byt filnamnen i
+          HTML-koden, exempelvis från <code>jobb-1.svg</code> till
+          <code>jobb-1.jpg</code>.
         </div>
 
-        <a class="facebook-gallery-button"
-           href="https://www.facebook.com/100068755244413/photos"
-           target="_blank" rel="noopener">
+
+        <a
+          class="facebook-gallery-button"
+          href="https://www.facebook.com/100068755244413/photos"
+          target="_blank"
+          rel="noopener"
+        >
           Se fler bilder på Facebook →
         </a>
+
       </div>
     </section>
 
+
+    <!-- RECENSIONER OCH SOCIALA MEDIER -->
     <section class="section reviews-section" id="recensioner">
       <div class="container">
+
         <div class="section-heading">
-          <p class="overline">Recensioner och sociala medier</p>
-          <h2>Se vad kunder säger och följ våra senaste jobb</h2>
+          <p class="overline">
+            Recensioner och sociala medier
+          </p>
+
+          <h2>
+            Se vad kunder säger och följ våra senaste jobb
+          </h2>
         </div>
 
+
         <div class="social-grid">
+
+          <!-- GOOGLE -->
           <article class="social-card google-card">
+
             <div class="social-top">
               <span class="google-logo">G</span>
+
               <div>
                 <h3>Google-recensioner</h3>
-                <p>Öppna företagets Google-profil för att läsa eller lämna en recension.</p>
+
+                <p>
+                  Öppna företagets Google-profil för att läsa eller lämna
+                  en recension.
+                </p>
               </div>
             </div>
 
-            <!--
-              För automatiska Google-recensioner:
-              klistra in widgetkoden från exempelvis Elfsight/Trustindex här,
-              eller använd Google Places API med en säker backend.
-            -->
+
             <div class="review-placeholder">
               <span>★★★★★</span>
-              <p>Google-recensioner kan visas automatiskt här när en widget eller Places API har kopplats.</p>
+
+              <p>
+                Google-recensioner kan visas automatiskt här när en widget
+                eller Places API har kopplats.
+              </p>
             </div>
 
-            <a class="button primary full"
-               href="https://www.google.com/maps/search/?api=1&query=Ronni%20M%C3%A5leri%2C%20Sandsj%C3%B6v%C3%A4gen%204%2C%20576%2036%20S%C3%A4vsj%C3%B6"
-               target="_blank" rel="noopener">
+
+            <a
+              class="button primary full"
+              href="https://www.google.com/maps/search/?api=1&query=Ronni%20M%C3%A5leri%2C%20Sandsj%C3%B6v%C3%A4gen%204%2C%20576%2036%20S%C3%A4vsj%C3%B6"
+              target="_blank"
+              rel="noopener"
+            >
               Öppna Ronni Måleri på Google
             </a>
+
           </article>
 
+
+          <!-- FACEBOOK -->
           <article class="social-card facebook-card">
+
             <div class="social-top">
               <span class="facebook-logo">f</span>
+
               <div>
                 <h3>Följ oss på Facebook</h3>
-                <p>Se bilder, uppdateringar och fler utförda arbeten.</p>
+
+                <p>
+                  Se bilder, uppdateringar och fler utförda arbeten.
+                </p>
               </div>
             </div>
+
 
             <div class="facebook-embed">
               <iframe
@@ -306,98 +503,174 @@
                 src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F100068755244413%2F&tabs=timeline&width=500&height=390&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
                 width="500"
                 height="390"
-                style="border:none;overflow:hidden"
+                style="border: none; overflow: hidden;"
                 scrolling="no"
                 frameborder="0"
                 allowfullscreen="true"
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-              </iframe>
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              ></iframe>
             </div>
 
-            <a class="button facebook full"
-               href="https://www.facebook.com/100068755244413/"
-               target="_blank" rel="noopener">
+
+            <a
+              class="button facebook full"
+              href="https://www.facebook.com/100068755244413/"
+              target="_blank"
+              rel="noopener"
+            >
               Besök Facebook-sidan
             </a>
+
           </article>
+
         </div>
       </div>
     </section>
 
+
+    <!-- KONTAKT -->
     <section class="contact-section" id="kontakt">
       <div class="container contact-grid">
+
         <div class="contact-content">
-          <p class="overline light">Kontakta oss</p>
-          <h2>Behöver du hjälp med ett måleriprojekt?</h2>
+          <p class="overline light">
+            Kontakta oss
+          </p>
+
+          <h2>
+            Behöver du hjälp med ett måleriprojekt?
+          </h2>
+
           <p>
             Ring och berätta vad du vill ha hjälp med. Vi bokar en tid,
             tittar på arbetet och lämnar en gratis offert.
           </p>
+
 
           <a class="contact-phone" href="tel:+46738613848">
             <small>Telefon</small>
             <strong>073-861 38 48</strong>
           </a>
 
+
           <div class="hours">
             <h3>Öppettider</h3>
-            <div><span>Måndag</span><strong>07.00–18.00</strong></div>
-            <div><span>Tisdag</span><strong>07.00–18.00</strong></div>
-            <div><span>Onsdag</span><strong>07.00–18.00</strong></div>
-            <div><span>Torsdag</span><strong>07.00–18.00</strong></div>
-            <div><span>Fredag</span><strong>07.00–18.00</strong></div>
-            <div><span>Lördag</span><strong>Stängt</strong></div>
-            <div><span>Söndag</span><strong>Stängt</strong></div>
+
+            <div>
+              <span>Måndag</span>
+              <strong>07.00–18.00</strong>
+            </div>
+
+            <div>
+              <span>Tisdag</span>
+              <strong>07.00–18.00</strong>
+            </div>
+
+            <div>
+              <span>Onsdag</span>
+              <strong>07.00–18.00</strong>
+            </div>
+
+            <div>
+              <span>Torsdag</span>
+              <strong>07.00–18.00</strong>
+            </div>
+
+            <div>
+              <span>Fredag</span>
+              <strong>07.00–18.00</strong>
+            </div>
+
+            <div>
+              <span>Lördag</span>
+              <strong>Stängt</strong>
+            </div>
+
+            <div>
+              <span>Söndag</span>
+              <strong>Stängt</strong>
+            </div>
           </div>
         </div>
 
+
         <div class="map-card">
+
           <iframe
             title="Karta till Ronni Måleri"
             src="https://www.google.com/maps?q=Sandsj%C3%B6v%C3%A4gen%204%2C%20576%2036%20S%C3%A4vsj%C3%B6&output=embed"
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
 
           <div class="map-address">
             <span>⌖</span>
+
             <div>
               <small>Adress</small>
               <strong>Sandsjövägen 4</strong>
               <p>576 36 Sävsjö</p>
             </div>
           </div>
+
         </div>
+
       </div>
     </section>
+
   </main>
 
+
+  <!-- FOOTER -->
   <footer>
+
     <div class="container footer-content">
+
       <div>
         <strong>Ronni Måleri</strong>
-        <p>Måleriarbeten inne och ute i Sävsjö och på hela Höglandet.</p>
+
+        <p>
+          Måleriarbeten inne och ute i Sävsjö och på hela Höglandet.
+        </p>
       </div>
 
+
       <div class="footer-links">
-        <a href="tel:+46738613848">073-861 38 48</a>
-        <a href="https://www.facebook.com/100068755244413/" target="_blank" rel="noopener">Facebook</a>
-        <a href="#start">Till toppen ↑</a>
+        <a href="#start">
+          Till toppen ↑
+        </a>
       </div>
+
     </div>
+
 
     <div class="container copyright">
       © <span id="year"></span> Ronni Måleri
     </div>
+
   </footer>
 
-  <!-- Bildvisare -->
+
+  <!-- BILDFÖRSTORING -->
   <div class="lightbox" aria-hidden="true">
-    <button class="lightbox-close" aria-label="Stäng bild">×</button>
+
+    <button
+      class="lightbox-close"
+      type="button"
+      aria-label="Stäng bild"
+    >
+      ×
+    </button>
+
     <img src="" alt="">
+
     <p></p>
+
   </div>
 
+
   <script src="script.js"></script>
+
 </body>
 </html>

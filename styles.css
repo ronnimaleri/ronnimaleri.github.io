@@ -112,14 +112,23 @@ p {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #ff2929;
+  line-height: 0;
+  isolation: isolate;
+  box-shadow: 0 10px 24px rgba(255, 41, 41, 0.22);
 }
 
 .logo img {
   display: block;
-  height: 56px;
   width: auto;
-  max-width: 220px;
+  height: 58px;
+  max-width: 245px;
   object-fit: contain;
+
+  /* Gör den svarta bakgrunden samma röd som sidan */
+  mix-blend-mode: screen;
 }
 
 .menu {

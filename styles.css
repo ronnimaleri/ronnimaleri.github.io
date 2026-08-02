@@ -163,9 +163,9 @@ button {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
-  gap: 75px;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 50px;
 }
 
 .overline {
@@ -947,9 +947,24 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .hero-text {
-    text-align: center;
-  }
+   .hero-text {
+     width: 100%;
+     max-width: 950px;
+     margin: 0 auto;
+     text-align: center;
+   }
+   .hero-buttons {
+     justify-content: center;
+   }
+   
+   .hero-points {
+     justify-content: center;
+   }
+   
+   .intro {
+     margin-left: auto;
+     margin-right: auto;
+   }
 
   .intro {
     margin-left: auto;

@@ -4,50 +4,76 @@
 // ======================================================
 
 
-// -----------------------
+// ======================================================
 // MOBILMENY
-// -----------------------
+// ======================================================
 
 const menuButton = document.querySelector(".menu-button");
 const menu = document.querySelector(".menu");
 
+function closeMenu() {
+  if (!menuButton || !menu) {
+    return;
+  }
+
+  menu.classList.remove("open");
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Öppna meny");
+}
+
 if (menuButton && menu) {
   menuButton.addEventListener("click", () => {
-    const open = menu.classList.toggle("open");
+    const menuIsOpen = menu.classList.toggle("open");
 
-    menuButton.setAttribute("aria-expanded", String(open));
+    menuButton.setAttribute(
+      "aria-expanded",
+      String(menuIsOpen)
+    );
+
     menuButton.setAttribute(
       "aria-label",
-      open ? "Stäng meny" : "Öppna meny"
+      menuIsOpen ? "Stäng meny" : "Öppna meny"
     );
   });
 
-  // Stäng menyn när användaren klickar på en länk
-  document.querySelectorAll(".menu a").forEach((link) => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.setAttribute("aria-label", "Öppna meny");
-    });
+
+  // Stäng mobilmenyn när användaren klickar på en menylänk
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
   });
 
-  // Stäng menyn när användaren klickar utanför den
+
+  // Stäng mobilmenyn när användaren klickar utanför menyn
   document.addEventListener("click", (event) => {
     const clickedInsideMenu = menu.contains(event.target);
     const clickedMenuButton = menuButton.contains(event.target);
 
     if (!clickedInsideMenu && !clickedMenuButton) {
-      menu.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.setAttribute("aria-label", "Öppna meny");
+      closeMenu();
+    }
+  });
+
+
+  // Stäng mobilmenyn med Escape
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+
+  // Stäng mobilmenyn när skärmen blir större
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 960) {
+      closeMenu();
     }
   });
 }
 
 
-// -----------------------
+// ======================================================
 // AKTUELLT ÅR I SIDFOTEN
-// -----------------------
+// ======================================================
 
 const yearElement = document.querySelector("#year");
 
@@ -56,9 +82,37 @@ if (yearElement) {
 }
 
 
-// -----------------------
-// BILDGALLERI / LIGHTBOX
-// -----------------------
+// ======================================================
+// MJUK RULLNING TILL SEKTIONER
+// ======================================================
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const targetId = link.getAttribute("href");
+
+    if (!targetId || targetId === "#") {
+      return;
+    }
+
+    const targetElement = document.querySelector(targetId);
+
+    if (!targetElement) {
+      return;
+    }
+
+    event.preventDefault();
+
+    targetElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
+
+
+// ======================================================
+// BILDGALLERI OCH LIGHTBOX
+// ======================================================
 
 const lightbox = document.querySelector(".lightbox");
 
@@ -68,17 +122,27 @@ if (lightbox) {
   const closeButton = lightbox.querySelector(".lightbox-close");
   const galleryItems = document.querySelectorAll(".gallery-item");
 
+  let previouslyFocusedElement = null;
+
+
   function openLightbox(imageSource, imageTitle) {
-    if (!lightboxImage || !lightboxTitle) {
+    if (!lightboxImage || !imageSource) {
       return;
     }
 
+    previouslyFocusedElement = document.activeElement;
+
     lightboxImage.src = imageSource;
-    lightboxImage.alt = imageTitle;
-    lightboxTitle.textContent = imageTitle;
+    lightboxImage.alt = imageTitle || "Bild från Ronni Måleri";
+
+    if (lightboxTitle) {
+      lightboxTitle.textContent =
+        imageTitle || "Ronni Måleri";
+    }
 
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden", "false");
+
     document.body.classList.add("no-scroll");
 
     if (closeButton) {
@@ -86,9 +150,11 @@ if (lightbox) {
     }
   }
 
+
   function closeLightbox() {
     lightbox.classList.remove("open");
     lightbox.setAttribute("aria-hidden", "true");
+
     document.body.classList.remove("no-scroll");
 
     if (lightboxImage) {
@@ -99,29 +165,41 @@ if (lightbox) {
     if (lightboxTitle) {
       lightboxTitle.textContent = "";
     }
+
+    if (
+      previouslyFocusedElement &&
+      typeof previouslyFocusedElement.focus === "function"
+    ) {
+      previouslyFocusedElement.focus();
+    }
+
+    previouslyFocusedElement = null;
   }
+
 
   galleryItems.forEach((item) => {
     item.addEventListener("click", () => {
       const imageSource = item.dataset.image;
-      const imageTitle = item.dataset.title || "Ronni Måleri";
+      const imageTitle =
+        item.dataset.title || "Ronni Måleri";
 
-      if (imageSource) {
-        openLightbox(imageSource, imageTitle);
-      }
+      openLightbox(imageSource, imageTitle);
     });
   });
+
 
   if (closeButton) {
     closeButton.addEventListener("click", closeLightbox);
   }
 
-  // Stäng bildvisaren när användaren klickar på bakgrunden
+
+  // Stäng bildvisaren genom att klicka på den mörka bakgrunden
   lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) {
       closeLightbox();
     }
   });
+
 
   // Stäng bildvisaren med Escape
   document.addEventListener("keydown", (event) => {
@@ -135,27 +213,16 @@ if (lightbox) {
 }
 
 
-// -----------------------
-// MJUK RULLNING TILL SEKTIONER
-// -----------------------
+// ======================================================
+// SKYDDA EXTERNA LÄNKAR SOM ÖPPNAS I NY FLIK
+// ======================================================
 
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const targetId = link.getAttribute("href");
+document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+  const currentRel = link.getAttribute("rel") || "";
+  const relValues = new Set(currentRel.split(" ").filter(Boolean));
 
-    if (!targetId || targetId === "#") {
-      return;
-    }
+  relValues.add("noopener");
+  relValues.add("noreferrer");
 
-    const targetElement = document.querySelector(targetId);
-
-    if (targetElement) {
-      event.preventDefault();
-
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  });
+  link.setAttribute("rel", [...relValues].join(" "));
 });

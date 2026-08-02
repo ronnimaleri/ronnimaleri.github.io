@@ -1,21 +1,29 @@
 /* =========================================================
    RONNI MÅLERI – STYLES.CSS
-   Lägg filen i SAMMA MAPP som index.html
+   Lägg filen i samma mapp som index.html
    ========================================================= */
 
 :root {
-  --red: #FF0000;
-  --red-dark: #B00000;
-  --red-light: #FFE5E5;
+  --red: #ff0000;
+  --red-dark: #b00000;
+  --red-darker: #850000;
+  --red-light: #ffe5e5;
+  --red-soft: #fff3f3;
+
   --black: #1b1b1e;
   --gray: #696970;
   --light: #f7f5f4;
   --white: #ffffff;
   --border: #e5e1e1;
+
   --shadow: 0 22px 60px rgba(60, 0, 0, 0.15);
   --radius: 22px;
   --container: 1160px;
 }
+
+/* =========================================================
+   GRUNDSTILAR
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -48,8 +56,22 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input,
+textarea,
+select {
   font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
 }
 
 .container {
@@ -57,14 +79,16 @@ button {
   margin: 0 auto;
 }
 
-/* HEADER */
+/* =========================================================
+   HEADER OCH MENY
+   ========================================================= */
 
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.94);
-  border-bottom: 1px solid rgba(229, 225, 225, 0.8);
+  border-bottom: 1px solid rgba(229, 225, 225, 0.85);
   backdrop-filter: blur(14px);
 }
 
@@ -80,6 +104,7 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .logo-icon {
@@ -132,6 +157,14 @@ button {
   border-radius: 999px;
   color: var(--white);
   background: var(--red);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-button:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
 }
 
 .menu-button {
@@ -139,7 +172,6 @@ button {
   padding: 8px;
   border: 0;
   background: transparent;
-  cursor: pointer;
 }
 
 .menu-button span {
@@ -148,15 +180,27 @@ button {
   height: 2px;
   margin: 5px 0;
   background: var(--black);
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
-/* HERO */
+/* =========================================================
+   HERO
+   Hero-text överst och informationskort under
+   ========================================================= */
 
 .hero {
   position: relative;
   overflow: hidden;
   padding: 90px 0;
-  background: linear-gradient(135deg, #ffffff 10%, #fff4f6 100%);
+  background:
+    radial-gradient(
+      circle at 90% 5%,
+      rgba(255, 0, 0, 0.08),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #ffffff 10%, #fff4f4 100%);
 }
 
 .hero-grid {
@@ -166,6 +210,13 @@ button {
   grid-template-columns: 1fr;
   align-items: start;
   gap: 50px;
+}
+
+.hero-text {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .overline {
@@ -178,11 +229,7 @@ button {
 }
 
 .overline.light {
-  color: #FF9999;
-}
-
-h1, h2, h3, p {
-  margin-top: 0;
+  color: #ff9999;
 }
 
 h1 {
@@ -198,6 +245,8 @@ h1 span {
 
 .intro {
   max-width: 660px;
+  margin-right: auto;
+  margin-left: auto;
   color: var(--gray);
   font-size: 18px;
 }
@@ -205,6 +254,7 @@ h1 span {
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 13px;
   margin-top: 32px;
 }
@@ -218,7 +268,11 @@ h1 span {
   border: 1px solid transparent;
   border-radius: 999px;
   font-weight: 800;
-  transition: transform 0.2s, background 0.2s;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .button:hover {
@@ -228,16 +282,22 @@ h1 span {
 .button.primary {
   color: var(--white);
   background: var(--red);
-  box-shadow: 0 14px 30px rgba(178, 13, 47, 0.24);
+  box-shadow: 0 14px 30px rgba(255, 0, 0, 0.22);
 }
 
 .button.primary:hover {
   background: var(--red-dark);
+  box-shadow: 0 17px 34px rgba(176, 0, 0, 0.28);
 }
 
 .button.secondary {
   border-color: var(--border);
   background: var(--white);
+}
+
+.button.secondary:hover {
+  color: var(--red);
+  border-color: var(--red);
 }
 
 .button.full {
@@ -249,9 +309,14 @@ h1 span {
   background: #1877f2;
 }
 
+.button.facebook:hover {
+  background: #0d65d9;
+}
+
 .hero-points {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px 22px;
   margin-top: 28px;
   color: #4f4f55;
@@ -263,17 +328,24 @@ h1 span {
   color: var(--red);
 }
 
+/* =========================================================
+   HERO INFORMATIONSKORT
+   ========================================================= */
 
 .hero-info-card {
   position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
   padding: 55px;
   border-radius: 36px;
   color: var(--white);
   background: linear-gradient(
     145deg,
-    #FF0000 0%,
-    #D90000 55%,
-    #A80000 100%
+    #ff0000 0%,
+    #dc0000 55%,
+    #a80000 100%
   );
   box-shadow: 0 25px 65px rgba(255, 0, 0, 0.22);
 }
@@ -281,10 +353,10 @@ h1 span {
 .hero-info-card::before {
   content: "";
   position: absolute;
-  top: 25px;
-  right: 25px;
-  width: 95px;
-  height: 95px;
+  top: -35px;
+  right: -20px;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
 }
@@ -292,10 +364,10 @@ h1 span {
 .hero-info-card::after {
   content: "";
   position: absolute;
-  right: 80px;
-  bottom: 45px;
-  width: 170px;
-  height: 170px;
+  right: 90px;
+  bottom: -95px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.06);
 }
@@ -304,7 +376,7 @@ h1 span {
   position: relative;
   z-index: 1;
   margin-bottom: 16px;
-  color: #FFFFFF;
+  color: var(--white);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.17em;
@@ -314,7 +386,7 @@ h1 span {
 .hero-info-card h2 {
   position: relative;
   z-index: 1;
-  max-width: 520px;
+  max-width: 700px;
   margin-bottom: 20px;
   color: var(--white);
   font-size: clamp(34px, 4vw, 52px);
@@ -322,32 +394,12 @@ h1 span {
   letter-spacing: -0.045em;
 }
 
-.hero-info-card > p:not(.hero-info-small) {
-  position: relative;
-  z-index: 1;
-  max-width: 520px;
-  color: rgba(255, 255, 255, 0.82);
-}
-
 .hero-info-card > p:not(.hero-info-small):not(.hero-info-quote) {
   position: relative;
   z-index: 1;
-  max-width: 520px;
+  max-width: 720px;
   margin-bottom: 14px;
-  color: rgba(255, 255, 255, 0.84);
-}
-
-.hero-info-quote {
-  position: relative;
-  z-index: 1;
-  margin: 25px 0;
-  padding: 17px 20px;
-  border-left: 4px solid #ffffff;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.12);
-  font-size: 17px;
-  font-weight: 800;
-  font-style: italic;
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .hero-info-list {
@@ -360,19 +412,35 @@ h1 span {
   font-weight: 700;
 }
 
+.hero-info-quote {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 25px 0;
+  padding: 17px 20px;
+  border-left: 4px solid var(--white);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 17px;
+  font-weight: 800;
+  font-style: italic;
+}
+
 .hero-info-button {
   position: relative;
   z-index: 1;
-  color: #FF0000;
+  color: var(--red);
   background: var(--white);
 }
 
 .hero-info-button:hover {
-  color: #A80000;
-  background: #FFF1F1;
+  color: var(--red-dark);
+  background: #fff1f1;
 }
 
-/* SNABBINFO */
+/* =========================================================
+   SNABBINFORMATION
+   ========================================================= */
 
 .quick-info {
   border-top: 1px solid var(--border);
@@ -396,6 +464,14 @@ h1 span {
   border-left: 1px solid var(--border);
 }
 
+.info-grid > a {
+  transition: background 0.2s ease;
+}
+
+.info-grid > a:hover {
+  background: var(--red-soft);
+}
+
 .info-icon {
   width: 44px;
   height: 44px;
@@ -416,6 +492,7 @@ h1 span {
 .info-grid small {
   color: var(--gray);
   font-size: 11px;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
@@ -423,7 +500,9 @@ h1 span {
   font-size: 14px;
 }
 
-/* GEMENSAMMA SEKTIONER */
+/* =========================================================
+   GEMENSAMMA SEKTIONER
+   ========================================================= */
 
 .section {
   padding: 105px 0;
@@ -436,7 +515,6 @@ h1 span {
 }
 
 .section-heading h2,
-.about-box h2,
 .contact-content h2 {
   margin-bottom: 17px;
   font-size: clamp(35px, 4.4vw, 54px);
@@ -448,7 +526,9 @@ h1 span {
   color: var(--gray);
 }
 
-/* TJÄNSTER */
+/* =========================================================
+   TJÄNSTER
+   ========================================================= */
 
 .service-grid {
   display: grid;
@@ -462,11 +542,15 @@ h1 span {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--white);
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .service-card:hover {
   transform: translateY(-6px);
+  border-color: rgba(255, 0, 0, 0.3);
   box-shadow: 0 18px 45px rgba(36, 18, 22, 0.09);
 }
 
@@ -477,10 +561,10 @@ h1 span {
 }
 
 .number {
-  display: inline-grid;
-  place-items: center;
   width: 43px;
   height: 43px;
+  display: inline-grid;
+  place-items: center;
   margin-bottom: 24px;
   border-radius: 13px;
   color: var(--red);
@@ -506,10 +590,12 @@ h1 span {
 }
 
 .service-card.featured p {
-  color: rgba(255,255,255,.78);
+  color: rgba(255, 255, 255, 0.82);
 }
 
-/* GALLERI */
+/* =========================================================
+   BILDGALLERI
+   ========================================================= */
 
 .gallery-section {
   background: var(--light);
@@ -542,8 +628,7 @@ h1 span {
   padding: 0;
   border: 0;
   border-radius: 20px;
-  background: #ddd;
-  cursor: pointer;
+  background: #dddddd;
   text-align: left;
 }
 
@@ -555,13 +640,17 @@ h1 span {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 6, 8, .82), transparent 58%);
+  background: linear-gradient(
+    to top,
+    rgba(15, 6, 8, 0.84),
+    transparent 58%
+  );
 }
 
 .gallery-item img {
   height: 100%;
   object-fit: cover;
-  transition: transform 0.45s;
+  transition: transform 0.45s ease;
 }
 
 .gallery-item:hover img {
@@ -582,7 +671,7 @@ h1 span {
 .gallery-item small {
   display: block;
   margin-bottom: 2px;
-  color: #FF0000;
+  color: #ffb3b3;
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -614,7 +703,13 @@ h1 span {
   font-weight: 800;
 }
 
-/* GOOGLE + FACEBOOK */
+.facebook-gallery-button:hover {
+  color: var(--red-dark);
+}
+
+/* =========================================================
+   GOOGLE OCH FACEBOOK
+   ========================================================= */
 
 .reviews-section {
   background: var(--light);
@@ -622,11 +717,13 @@ h1 span {
 
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 25px;
 }
 
 .social-card {
+  min-width: 0;
   padding: 30px;
   border: 1px solid var(--border);
   border-radius: 26px;
@@ -636,9 +733,9 @@ h1 span {
 
 .social-top {
   display: grid;
-  grid-template-columns: 52px 1fr;
-  gap: 15px;
+  grid-template-columns: 52px minmax(0, 1fr);
   align-items: center;
+  gap: 15px;
 }
 
 .social-top h3 {
@@ -703,11 +800,17 @@ h1 span {
 }
 
 .facebook-embed iframe {
+  display: block;
   width: 100%;
   max-width: 500px;
+  height: 390px;
+  margin: 0 auto;
+  border: 0;
 }
 
-/* KONTAKT */
+/* =========================================================
+   KONTAKT
+   ========================================================= */
 
 .contact-section {
   padding: 100px 0;
@@ -736,7 +839,7 @@ h1 span {
 }
 
 .contact-phone strong {
-  color: #FF9999;
+  color: #ff9999;
   font-size: 32px;
 }
 
@@ -788,6 +891,7 @@ h1 span {
 .map-address > span {
   width: 45px;
   height: 45px;
+  flex: 0 0 auto;
   display: grid;
   place-items: center;
   border-radius: 13px;
@@ -810,7 +914,9 @@ h1 span {
   color: var(--gray);
 }
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
   padding: 55px 0 20px;
@@ -820,7 +926,7 @@ footer {
 
 .footer-content {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 40px;
 }
@@ -842,7 +948,7 @@ footer {
 }
 
 .footer-links a:hover {
-  color: #FF9999;
+  color: #ff9999;
 }
 
 .copyright {
@@ -853,7 +959,9 @@ footer {
   font-size: 11px;
 }
 
-/* BILDFÖRSTORING */
+/* =========================================================
+   BILDFÖRSTORING
+   ========================================================= */
 
 .lightbox {
   position: fixed;
@@ -871,6 +979,7 @@ footer {
 }
 
 .lightbox img {
+  width: auto;
   max-width: 1050px;
   max-height: 82vh;
   object-fit: contain;
@@ -879,9 +988,10 @@ footer {
 
 .lightbox p {
   position: absolute;
-  left: 30px;
-  bottom: 18px;
   right: 30px;
+  bottom: 18px;
+  left: 30px;
+  margin: 0;
   color: var(--white);
   text-align: center;
   font-weight: 800;
@@ -896,12 +1006,17 @@ footer {
   border: 0;
   border-radius: 50%;
   color: var(--white);
-  background: rgba(255,255,255,.12);
+  background: rgba(255, 255, 255, 0.12);
   font-size: 32px;
-  cursor: pointer;
 }
 
-/* MOBIL */
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* =========================================================
+   SURFPLATTA
+   ========================================================= */
 
 @media (max-width: 940px) {
   .menu-button {
@@ -911,8 +1026,8 @@ footer {
   .menu {
     position: fixed;
     top: 78px;
-    left: 18px;
     right: 18px;
+    left: 18px;
     display: grid;
     gap: 0;
     padding: 14px;
@@ -923,7 +1038,10 @@ footer {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-15px);
-    transition: 0.25s;
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease,
+      transform 0.25s ease;
   }
 
   .menu.open {
@@ -941,52 +1059,12 @@ footer {
     text-align: center;
   }
 
-  .hero-grid,
-  .about-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-   .hero-text {
-     width: 100%;
-     max-width: 950px;
-     margin: 0 auto;
-     text-align: center;
-   }
-   .hero-buttons {
-     justify-content: center;
-   }
-   
-   .hero-points {
-     justify-content: center;
-   }
-   
-   .intro {
-     margin-left: auto;
-     margin-right: auto;
-   }
-
-  .intro {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-buttons,
-  .hero-points {
-    justify-content: center;
-  }
-
-  .hero-card {
-    max-width: 650px;
-    margin: 0 auto;
-  }
-
   .service-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: 390px 240px 240px;
   }
 
@@ -998,9 +1076,26 @@ footer {
   .social-grid {
     grid-template-columns: 1fr;
   }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .contact-content {
+    max-width: 720px;
+  }
 }
 
+/* =========================================================
+   MOBIL
+   ========================================================= */
+
 @media (max-width: 680px) {
+  .container {
+    width: min(calc(100% - 28px), var(--container));
+  }
+
   .section,
   .contact-section {
     padding: 78px 0;
@@ -1011,11 +1106,36 @@ footer {
   }
 
   .hero-grid {
-    gap: 50px;
+    gap: 40px;
   }
 
   h1 {
     font-size: clamp(46px, 15vw, 70px);
+  }
+
+  .intro {
+    font-size: 16px;
+  }
+
+  .hero-info-card {
+    padding: 35px 25px;
+    border-radius: 25px;
+  }
+
+  .hero-info-card h2 {
+    font-size: 36px;
+  }
+
+  .hero-info-card::before {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-info-card::after {
+    right: -30px;
+    bottom: -80px;
+    width: 190px;
+    height: 190px;
   }
 
   .info-grid {
@@ -1023,8 +1143,8 @@ footer {
   }
 
   .info-grid > * + * {
-    border-left: 0;
     border-top: 1px solid var(--border);
+    border-left: 0;
   }
 
   .service-grid {
@@ -1033,6 +1153,10 @@ footer {
 
   .gallery-heading {
     display: block;
+  }
+
+  .gallery-heading > p:last-child {
+    margin-top: 16px;
   }
 
   .gallery {
@@ -1044,24 +1168,25 @@ footer {
     grid-column: auto;
   }
 
-  .about-box,
-  .red-quote {
-    padding: 30px;
-  }
-
-  .red-quote {
-    min-height: 370px;
-  }
-
-  .red-quote p {
-    font-size: 29px;
-  }
-
   .social-card {
     padding: 21px;
   }
 
+  .social-top {
+    grid-template-columns: 46px minmax(0, 1fr);
+  }
+
+  .google-logo,
+  .facebook-logo {
+    width: 46px;
+    height: 46px;
+  }
+
   .facebook-embed {
+    height: 360px;
+  }
+
+  .facebook-embed iframe {
     height: 360px;
   }
 
@@ -1079,7 +1204,15 @@ footer {
   }
 }
 
+/* =========================================================
+   LITEN MOBIL
+   ========================================================= */
+
 @media (max-width: 430px) {
+  .logo small {
+    max-width: 170px;
+  }
+
   .hero-buttons {
     display: grid;
   }
@@ -1093,22 +1226,32 @@ footer {
     gap: 7px;
   }
 
-  .experience-card {
-    top: 18px;
-    bottom: auto;
-  }
-   
-@media (max-width: 680px) {
   .hero-info-card {
-    padding: 35px 25px;
-    border-radius: 25px;
+    padding: 30px 21px;
   }
 
   .hero-info-card h2 {
-    font-size: 36px;
+    font-size: 32px;
   }
-}
+
+  .hero-info-quote {
+    padding: 15px;
+    font-size: 15px;
+  }
+
   .contact-phone strong {
     font-size: 27px;
+  }
+
+  .hours div {
+    font-size: 12px;
+  }
+
+  .map-address {
+    align-items: flex-start;
+  }
+
+  .lightbox {
+    padding: 20px;
   }
 }

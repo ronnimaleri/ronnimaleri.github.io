@@ -1454,3 +1454,544 @@ footer {
     padding: 20px;
   }
 }
+
+
+
+
+
+
+/* =========================================================
+   NY DESIGN – HERO INFORMATIONSKORT
+   Klistra in längst ner i styles.css
+   ========================================================= */
+
+.hero-info-card {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 55px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 58px 60px 58px 68px;
+  border: 1px solid rgba(255, 41, 41, 0.16);
+  border-radius: 30px;
+  color: var(--black);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 41, 41, 0.035),
+      transparent 45%
+    ),
+    var(--white);
+  box-shadow:
+    0 30px 80px rgba(45, 20, 20, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+
+/* Röd linje på vänster sida */
+
+.hero-info-card::before {
+  content: "";
+  position: absolute;
+  top: 26px;
+  bottom: 26px;
+  left: 0;
+  width: 7px;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(
+    to bottom,
+    var(--red),
+    var(--red-dark)
+  );
+}
+
+
+/* Dekorativ röd cirkel */
+
+.hero-info-card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -115px;
+  right: -115px;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  background: rgba(255, 41, 41, 0.06);
+}
+
+
+/* Vänster innehåll */
+
+.hero-info-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-info-small {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-info-small::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--red);
+}
+
+.hero-info-content h2 {
+  max-width: 480px;
+  margin-bottom: 20px;
+  color: var(--black);
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+}
+
+.hero-info-content > p:last-child {
+  max-width: 500px;
+  margin-bottom: 0;
+  color: var(--gray);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+
+/* Processkort */
+
+.hero-process {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 13px;
+}
+
+.hero-process article {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  gap: 17px;
+  padding: 17px 19px;
+  border: 1px solid rgba(255, 41, 41, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 247, 247, 0.8);
+  box-shadow: 0 8px 24px rgba(60, 20, 20, 0.045);
+  backdrop-filter: none;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hero-process article:hover {
+  transform: translateX(7px);
+  border-color: rgba(255, 41, 41, 0.35);
+  background: var(--white);
+  box-shadow: 0 15px 35px rgba(60, 20, 20, 0.09);
+}
+
+.hero-process article > span {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  color: var(--white);
+  background: linear-gradient(
+    145deg,
+    var(--red),
+    var(--red-dark)
+  );
+  box-shadow: 0 10px 23px rgba(255, 41, 41, 0.22);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.hero-process h3 {
+  margin-bottom: 3px;
+  color: var(--black);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.hero-process p {
+  margin-bottom: 0;
+  color: var(--gray);
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   NY DESIGN – TJÄNSTER
+   ========================================================= */
+
+.services {
+  background: var(--white);
+}
+
+.services-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 70px;
+  border: 0;
+  border-radius: 36px;
+  color: var(--white);
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(255, 41, 41, 0.24),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(255, 41, 41, 0.1),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #202024 0%,
+      #151517 100%
+    );
+  box-shadow: 0 30px 80px rgba(20, 15, 16, 0.18);
+}
+
+
+/* Dekoration bakom tjänstekorten */
+
+.services-shell::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -170px;
+  right: -130px;
+  width: 390px;
+  height: 390px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+}
+
+.services-shell::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -200px;
+  left: -170px;
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  background: rgba(255, 41, 41, 0.055);
+}
+
+
+/* Rubrikdelen */
+
+.services-heading {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  align-items: end;
+  gap: 55px;
+  margin-bottom: 48px;
+  text-align: left;
+}
+
+.services-heading .overline {
+  color: #ff8f8f;
+}
+
+.services-heading h2 {
+  max-width: 660px;
+  margin-bottom: 0;
+  color: var(--white);
+}
+
+.services-heading > p:last-child {
+  max-width: 440px;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+
+/* Tjänstekort */
+
+.service-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.service-card {
+  position: relative;
+  min-width: 0;
+  min-height: 245px;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 22px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 41, 41, 0.58);
+  background: rgba(255, 255, 255, 0.085);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Dekorativ glöd i varje kort */
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  bottom: -55px;
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+  background: rgba(255, 41, 41, 0.11);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::after {
+  transform: scale(1.25);
+}
+
+
+/* Markerat tjänstekort */
+
+.service-card.featured {
+  color: var(--white);
+  border-color: transparent;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(255, 255, 255, 0.18),
+      transparent 36%
+    ),
+    linear-gradient(
+      145deg,
+      var(--red),
+      var(--red-dark)
+    );
+  box-shadow: 0 20px 42px rgba(255, 41, 41, 0.22);
+}
+
+.service-card.featured:hover {
+  border-color: transparent;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(255, 255, 255, 0.23),
+      transparent 36%
+    ),
+    linear-gradient(
+      145deg,
+      #ff3b3b,
+      var(--red-dark)
+    );
+}
+
+.service-card.featured::after {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+
+/* Nummer */
+
+.number {
+  position: relative;
+  z-index: 1;
+  width: 47px;
+  height: 47px;
+  display: inline-grid;
+  place-items: center;
+  margin-bottom: 27px;
+  border: 1px solid rgba(255, 41, 41, 0.25);
+  border-radius: 14px;
+  color: #ff8e8e;
+  background: rgba(255, 41, 41, 0.12);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.featured .number {
+  color: var(--red);
+  border-color: transparent;
+  background: var(--white);
+}
+
+
+/* Text i tjänstekorten */
+
+.service-card h3 {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 11px;
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.service-card p {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.61);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.service-card.featured p {
+  color: rgba(255, 255, 255, 0.83);
+}
+
+
+/* =========================================================
+   SURFPLATTA
+   ========================================================= */
+
+@media (max-width: 960px) {
+  .hero-info-card {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    padding: 52px;
+  }
+
+  .hero-info-content {
+    max-width: 720px;
+  }
+
+  .services-shell {
+    padding: 52px;
+  }
+
+  .services-heading {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .services-heading > p:last-child {
+    max-width: 630px;
+    margin-bottom: 0;
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   MOBIL
+   ========================================================= */
+
+@media (max-width: 680px) {
+  .hero-info-card {
+    gap: 30px;
+    padding: 38px 25px 32px 31px;
+    border-radius: 25px;
+  }
+
+  .hero-info-card::before {
+    top: 20px;
+    bottom: 20px;
+    width: 5px;
+  }
+
+  .hero-info-content h2 {
+    font-size: 36px;
+  }
+
+  .hero-process article {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 14px;
+    padding: 15px;
+  }
+
+  .hero-process article > span {
+    width: 46px;
+    height: 46px;
+  }
+
+  .hero-process article:hover {
+    transform: translateY(-3px);
+  }
+
+  .services-shell {
+    padding: 40px 22px;
+    border-radius: 27px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: auto;
+  }
+}
+
+
+/* =========================================================
+   LITEN MOBIL
+   ========================================================= */
+
+@media (max-width: 430px) {
+  .hero-info-card {
+    padding: 32px 19px 27px 25px;
+  }
+
+  .hero-info-content h2 {
+    font-size: 31px;
+  }
+
+  .hero-process article {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .hero-process article > span {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+
+  .services-shell {
+    padding: 33px 18px;
+  }
+
+  .service-card {
+    padding: 25px;
+  }
+}

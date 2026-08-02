@@ -1,6 +1,5 @@
 /* =========================================================
    RONNI MÅLERI – STYLES.CSS
-   Ersätt hela den gamla styles.css-filen med denna kod
    ========================================================= */
 
 
@@ -538,8 +537,7 @@ p {
 
 
 /* =========================================================
-   TJÄNSTER – NY MÖRK DESIGN
-   Alla tjänstekort är identiska
+   TJÄNSTER – MÖRK DESIGN
    ========================================================= */
 
 .services {
@@ -547,11 +545,6 @@ p {
   overflow: hidden;
   background: var(--white);
 }
-
-
-/* =========================================================
-   TJÄNSTESEKTIONENS STORA PANEL
-   ========================================================= */
 
 .services-shell {
   position: relative;
@@ -605,9 +598,7 @@ p {
 }
 
 
-/* =========================================================
-   RUBRIKOMRÅDE
-   ========================================================= */
+/* Tjänsternas rubrikområde */
 
 .services-heading {
   position: relative;
@@ -654,9 +645,7 @@ p {
 }
 
 
-/* =========================================================
-   TJÄNSTERNAS RUTNÄT
-   ========================================================= */
+/* Tjänsternas rutnät */
 
 .service-grid {
   position: relative;
@@ -666,9 +655,6 @@ p {
   align-items: stretch;
   gap: 16px;
 }
-
-
-/* Återställ eventuella gamla bento-bredder */
 
 .service-card:nth-child(1),
 .service-card:nth-child(2),
@@ -680,9 +666,7 @@ p {
 }
 
 
-/* =========================================================
-   ALLA TJÄNSTEKORT
-   ========================================================= */
+/* Alla tjänstekort */
 
 .service-card,
 .service-card.featured {
@@ -695,7 +679,7 @@ p {
   align-content: center;
   column-gap: 21px;
   overflow: hidden;
-  padding: 29px 66px 29px 29px;
+  padding: 29px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 19px;
   color: var(--black);
@@ -731,34 +715,16 @@ p {
 }
 
 
-/* Dekorativ pil */
+/* Tar bort symbolen uppe till höger */
 
 .service-card::after,
 .service-card.featured::after {
-  content: "↗";
-  position: absolute;
-  top: 23px;
-  right: 23px;
-  bottom: auto;
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--red-light);
-  border-radius: 50%;
-  color: var(--red);
-  background: var(--red-soft);
-  opacity: 1;
-  font-size: 15px;
-  font-weight: 800;
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease;
+  content: none;
+  display: none;
 }
 
 
-/* Samma hover på alla kort */
+/* Samma hover på samtliga kort */
 
 .service-card:hover,
 .service-card.featured:hover {
@@ -776,17 +742,8 @@ p {
   width: 6px;
 }
 
-.service-card:hover::after,
-.service-card.featured:hover::after {
-  transform: rotate(45deg);
-  color: var(--white);
-  background: var(--red);
-}
 
-
-/* =========================================================
-   TJÄNSTENUMMER
-   ========================================================= */
+/* Tjänstenummer */
 
 .number,
 .featured .number,
@@ -820,9 +777,7 @@ p {
 }
 
 
-/* =========================================================
-   TJÄNSTETEXT
-   ========================================================= */
+/* Tjänstetext */
 
 .service-card h3,
 .service-card.featured h3 {
@@ -853,127 +808,6 @@ p {
   line-height: 1.65;
 }
 
-
-/* =========================================================
-   SURFPLATTA
-   ========================================================= */
-
-@media (max-width: 960px) {
-  .services-shell {
-    padding: 50px;
-  }
-
-  .services-heading {
-    grid-template-columns: 1fr;
-    gap: 17px;
-  }
-
-  .services-heading > p:last-child {
-    max-width: 640px;
-    margin-bottom: 0;
-  }
-
-  .service-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .service-card,
-  .service-card.featured {
-    min-height: 165px;
-  }
-}
-
-
-/* =========================================================
-   MOBIL
-   ========================================================= */
-
-@media (max-width: 680px) {
-  .services-shell {
-    padding: 39px 22px;
-    border-radius: 26px;
-  }
-
-  .services-heading {
-    margin-bottom: 34px;
-    padding-bottom: 26px;
-  }
-
-  .service-grid {
-    gap: 13px;
-  }
-
-  .service-card,
-  .service-card.featured {
-    min-height: auto;
-    grid-template-columns: 50px minmax(0, 1fr);
-    column-gap: 16px;
-    padding: 24px 53px 24px 22px;
-    border-radius: 17px;
-  }
-
-  .number,
-  .featured .number,
-  .service-card.featured .number {
-    width: 50px;
-    height: 50px;
-    border-radius: 14px;
-  }
-
-  .service-card h3,
-  .service-card.featured h3 {
-    font-size: 19px;
-  }
-
-  .service-card p,
-  .service-card.featured p {
-    font-size: 13px;
-  }
-
-  .service-card::after,
-  .service-card.featured::after {
-    top: 18px;
-    right: 17px;
-    width: 30px;
-    height: 30px;
-  }
-}
-
-
-/* =========================================================
-   LITEN MOBIL
-   ========================================================= */
-
-@media (max-width: 430px) {
-  .services-shell {
-    padding: 32px 17px;
-  }
-
-  .service-card,
-  .service-card.featured {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 13px;
-    padding: 23px 50px 23px 20px;
-  }
-
-  .number,
-  .featured .number,
-  .service-card.featured .number {
-    grid-column: 1;
-    grid-row: auto;
-    width: 46px;
-    height: 46px;
-  }
-
-  .service-card h3,
-  .service-card.featured h3,
-  .service-card p,
-  .service-card.featured p {
-    grid-column: 1;
-    grid-row: auto;
-  }
-}
 
 /* =========================================================
    GALLERI
@@ -1553,17 +1387,27 @@ footer {
     padding: 30px 48px 38px;
   }
 
+  .services-shell {
+    padding: 50px;
+  }
+
   .services-heading {
-    margin-bottom: 44px;
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .services-heading > p:last-child {
+    max-width: 640px;
+    margin-bottom: 0;
   }
 
   .service-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .service-card,
   .service-card.featured {
-    min-height: 240px;
+    min-height: 165px;
   }
 
   .gallery-heading {
@@ -1655,46 +1499,46 @@ footer {
     height: 48px;
   }
 
+  .services-shell {
+    padding: 39px 22px;
+    border-radius: 26px;
+  }
+
   .services-heading {
-    margin-bottom: 36px;
-    text-align: left;
-  }
-
-  .services-heading::before {
-    margin-right: 0;
-    margin-left: 0;
-  }
-
-  .services-heading h2,
-  .services-heading > p:last-child {
-    margin-right: 0;
-    margin-left: 0;
+    margin-bottom: 34px;
+    padding-bottom: 26px;
   }
 
   .service-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 13px;
   }
 
   .service-card,
   .service-card.featured {
     min-height: auto;
-    padding: 28px 25px;
-    border-radius: 20px;
+    grid-template-columns: 50px minmax(0, 1fr);
+    column-gap: 16px;
+    padding: 24px 22px;
+    border-radius: 17px;
   }
 
   .number,
   .featured .number,
   .service-card.featured .number {
-    width: 47px;
-    height: 47px;
-    margin-bottom: 22px;
+    width: 50px;
+    height: 50px;
     border-radius: 14px;
   }
 
   .service-card h3,
   .service-card.featured h3 {
-    font-size: 20px;
+    font-size: 19px;
+  }
+
+  .service-card p,
+  .service-card.featured p {
+    font-size: 13px;
   }
 
   .gallery {
@@ -1784,17 +1628,33 @@ footer {
     height: 44px;
   }
 
+  .services-shell {
+    padding: 32px 17px;
+  }
+
   .service-card,
   .service-card.featured {
-    padding: 25px 21px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 13px;
+    padding: 23px 20px;
   }
 
   .number,
   .featured .number,
   .service-card.featured .number {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 20px;
+    grid-column: 1;
+    grid-row: auto;
+    width: 46px;
+    height: 46px;
+  }
+
+  .service-card h3,
+  .service-card.featured h3,
+  .service-card p,
+  .service-card.featured p {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .social-card {

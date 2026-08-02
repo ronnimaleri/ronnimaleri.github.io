@@ -109,41 +109,17 @@ p {
 }
 
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
   flex-shrink: 0;
 }
 
-.logo-icon {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border-radius: 13px;
-  color: var(--white);
-  background: var(--red);
-  box-shadow: 0 10px 24px rgba(255, 41, 41, 0.24);
-  font-size: 23px;
-  font-weight: 900;
-}
-
-.logo > span:last-child {
-  display: grid;
-  line-height: 1.08;
-}
-
-.logo strong {
-  font-size: 17px;
-}
-
-.logo small {
-  margin-top: 5px;
-  color: var(--red);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.logo img {
+  display: block;
+  height: 56px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
 }
 
 .menu {
@@ -1366,5 +1342,12 @@ footer {
 
   .lightbox {
     padding: 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .logo img {
+    height: 44px;
+    max-width: 170px;
   }
 }

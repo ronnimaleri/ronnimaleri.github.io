@@ -16,6 +16,9 @@
   --white: #ffffff;
   --border: #e8e4e4;
 
+  --facebook: #1877f2;
+  --facebook-dark: #0d65d9;
+
   --container: 1160px;
   --radius-small: 14px;
   --radius-medium: 22px;
@@ -43,9 +46,15 @@ body {
   margin: 0;
   color: var(--black);
   background: var(--white);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body.no-scroll {
@@ -116,8 +125,8 @@ p {
 
 .logo img {
   display: block;
-  height: 56px;
   width: auto;
+  height: 56px;
   max-width: 220px;
   object-fit: contain;
 }
@@ -241,15 +250,6 @@ p {
   width: 100%;
 }
 
-.button.facebook {
-  color: var(--white);
-  background: #1877f2;
-}
-
-.button.facebook:hover {
-  background: #0d65d9;
-}
-
 
 /* =========================================================
    HERO
@@ -294,6 +294,7 @@ p {
   margin-bottom: 28px;
   margin-left: auto;
   font-size: clamp(50px, 6.8vw, 84px);
+  font-weight: 800;
   line-height: 0.99;
   letter-spacing: -0.058em;
 }
@@ -393,6 +394,7 @@ p {
   margin-bottom: 20px;
   color: var(--white);
   font-size: clamp(34px, 4vw, 50px);
+  font-weight: 800;
   line-height: 1.06;
   letter-spacing: -0.045em;
 }
@@ -474,6 +476,7 @@ p {
 .contact-content h2 {
   margin-bottom: 18px;
   font-size: clamp(36px, 4.5vw, 55px);
+  font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.047em;
 }
@@ -713,138 +716,108 @@ p {
   text-transform: uppercase;
 }
 
-.gallery-note {
-  margin-top: 24px;
-  padding: 18px 20px;
-  border-left: 4px solid var(--red);
-  border-radius: 0 12px 12px 0;
-  color: var(--gray);
-  background: var(--white);
-  font-size: 13px;
-}
-
-.gallery-note strong {
-  color: var(--black);
-}
-
-.gallery-note code {
-  padding: 2px 6px;
-  border-radius: 5px;
-  background: #eee9e7;
-}
-
 .facebook-gallery-button {
   display: inline-flex;
   margin-top: 23px;
   color: var(--red);
   font-weight: 800;
-  transition: color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .facebook-gallery-button:hover {
   color: var(--red-dark);
+  transform: translateX(3px);
 }
 
 
 /* =========================================================
-   RECENSIONER OCH SOCIALA MEDIER
+   GOOGLE-RECENSIONER
    ========================================================= */
 
 .reviews-section {
-  background: var(--white);
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255, 41, 41, 0.05),
+      transparent 28%
+    ),
+    var(--white);
 }
 
-.social-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 25px;
+.reviews-single {
+  width: 100%;
 }
 
 .social-card {
   min-width: 0;
-  padding: 31px;
+  padding: 34px;
   border: 1px solid var(--border);
-  border-radius: 27px;
+  border-radius: 28px;
   background: var(--white);
-  box-shadow: 0 16px 45px rgba(37, 18, 22, 0.08);
+  box-shadow: 0 18px 50px rgba(37, 18, 22, 0.09);
+}
+
+.google-card {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
 }
 
 .social-top {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
+  grid-template-columns: 54px minmax(0, 1fr);
   align-items: center;
-  gap: 15px;
+  gap: 16px;
 }
 
 .social-top h3 {
-  margin-bottom: 3px;
-  font-size: 21px;
+  margin-bottom: 4px;
+  font-size: 22px;
 }
 
 .social-top p {
   margin-bottom: 0;
   color: var(--gray);
-  font-size: 13px;
-}
-
-.google-logo,
-.facebook-logo {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  border-radius: 15px;
-  font-size: 27px;
-  font-weight: 900;
+  font-size: 14px;
 }
 
 .google-logo {
-  color: #4285f4;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
   border: 1px solid var(--border);
-  background: var(--white);
-}
-
-.facebook-logo {
-  color: var(--white);
-  background: #1877f2;
-}
-
-.review-placeholder {
-  margin: 25px 0;
-  padding: 25px;
-  border-radius: 17px;
-  background: var(--light);
-}
-
-.review-placeholder span {
-  color: #f2a900;
-  font-size: 20px;
-  letter-spacing: 4px;
-}
-
-.review-placeholder p {
-  margin: 10px 0 0;
-  color: var(--gray);
-  font-size: 13px;
-}
-
-.facebook-embed {
-  width: 100%;
-  height: 390px;
-  overflow: hidden;
-  margin: 25px 0;
   border-radius: 16px;
+  color: #4285f4;
+  background: var(--white);
+  box-shadow: 0 8px 22px rgba(30, 50, 90, 0.08);
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.google-reviews-widget {
+  width: 100%;
+  min-height: 320px;
+  margin: 28px 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 20px;
   background: var(--light);
 }
 
-.facebook-embed iframe {
+.google-reviews-widget > div {
   width: 100%;
-  max-width: 500px;
-  height: 390px;
-  display: block;
-  margin: 0 auto;
-  border: 0;
+  min-height: 320px;
+}
+
+.google-reviews-widget iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 320px !important;
+  display: block !important;
+  border: 0 !important;
 }
 
 
@@ -882,7 +855,7 @@ p {
 
 .contact-phone {
   display: inline-grid;
-  margin: 21px 0 34px;
+  margin: 21px 0 30px;
 }
 
 .contact-phone small {
@@ -894,7 +867,100 @@ p {
   color: #ff9d9d;
   font-size: 32px;
   line-height: 1.2;
+  transition: color 0.2s ease;
 }
+
+.contact-phone:hover strong {
+  color: var(--white);
+}
+
+
+/* FACEBOOK I KONTAKTSEKTIONEN */
+
+.contact-social {
+  width: 100%;
+  max-width: 440px;
+  margin-bottom: 32px;
+}
+
+.contact-social > p {
+  margin-bottom: 11px;
+  color: #aaaab0;
+  font-size: 13px;
+}
+
+.facebook-contact-link {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(24, 119, 242, 0.38);
+  border-radius: 17px;
+  color: var(--white);
+  background: rgba(24, 119, 242, 0.12);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.facebook-contact-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(24, 119, 242, 0.75);
+  background: rgba(24, 119, 242, 0.2);
+  box-shadow: 0 14px 30px rgba(0, 60, 150, 0.18);
+}
+
+.facebook-contact-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: var(--white);
+  background: var(--facebook);
+  box-shadow: 0 8px 20px rgba(24, 119, 242, 0.3);
+}
+
+.facebook-contact-icon svg {
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
+.facebook-contact-link small,
+.facebook-contact-link strong {
+  display: block;
+}
+
+.facebook-contact-link small {
+  margin-bottom: 2px;
+  color: #aebbd0;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.facebook-contact-link strong {
+  color: var(--white);
+  font-size: 15px;
+}
+
+.facebook-contact-arrow {
+  color: #91bdf8;
+  font-size: 22px;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.facebook-contact-link:hover .facebook-contact-arrow {
+  transform: translateX(4px);
+}
+
+
+/* ÖPPETTIDER */
 
 .hours {
   max-width: 440px;
@@ -918,6 +984,9 @@ p {
 .hours strong {
   color: var(--white);
 }
+
+
+/* KARTA */
 
 .map-card {
   overflow: hidden;
@@ -1165,10 +1234,6 @@ footer {
     grid-row: auto;
   }
 
-  .social-grid {
-    grid-template-columns: 1fr;
-  }
-
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 55px;
@@ -1260,15 +1325,15 @@ footer {
     grid-template-columns: 47px minmax(0, 1fr);
   }
 
-  .google-logo,
-  .facebook-logo {
+  .google-logo {
     width: 47px;
     height: 47px;
   }
 
-  .facebook-embed,
-  .facebook-embed iframe {
-    height: 360px;
+  .google-reviews-widget,
+  .google-reviews-widget > div,
+  .google-reviews-widget iframe {
+    min-height: 280px !important;
   }
 
   .map-card iframe {
@@ -1291,8 +1356,9 @@ footer {
    ========================================================= */
 
 @media (max-width: 430px) {
-  .logo small {
-    max-width: 165px;
+  .logo img {
+    height: 44px;
+    max-width: 170px;
   }
 
   .hero-buttons {
@@ -1328,8 +1394,52 @@ footer {
     padding: 25px;
   }
 
+  .social-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .social-top {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .google-logo {
+    width: 42px;
+    height: 42px;
+    font-size: 23px;
+  }
+
+  .social-top h3 {
+    font-size: 18px;
+  }
+
+  .google-reviews-widget {
+    margin: 22px 0;
+    border-radius: 15px;
+  }
+
   .contact-phone strong {
     font-size: 27px;
+  }
+
+  .facebook-contact-link {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    gap: 11px;
+    padding: 12px;
+  }
+
+  .facebook-contact-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .facebook-contact-link strong {
+    font-size: 14px;
+  }
+
+  .facebook-contact-arrow {
+    font-size: 19px;
   }
 
   .hours div {
@@ -1342,12 +1452,5 @@ footer {
 
   .lightbox {
     padding: 20px;
-  }
-}
-
-@media (max-width: 430px) {
-  .logo img {
-    height: 44px;
-    max-width: 170px;
   }
 }

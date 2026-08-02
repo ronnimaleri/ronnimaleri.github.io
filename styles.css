@@ -538,110 +538,169 @@ p {
 
 
 /* =========================================================
-   TJÄNSTER
-   Alla sex kort har samma design
+   TJÄNSTER – NY MÖRK DESIGN
+   Alla tjänstekort är identiska
    ========================================================= */
 
 .services {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(255, 41, 41, 0.06),
-      transparent 30%
-    ),
-    var(--white);
+  background: var(--white);
 }
+
+
+/* =========================================================
+   TJÄNSTESEKTIONENS STORA PANEL
+   ========================================================= */
 
 .services-shell {
   position: relative;
-  overflow: visible;
-  padding: 0;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 68px;
   border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
+  border-radius: 34px;
+  color: var(--white);
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(255, 41, 41, 0.24),
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(255, 41, 41, 0.08),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      #202023 0%,
+      #151517 100%
+    );
+  box-shadow: 0 28px 75px rgba(20, 15, 16, 0.2);
 }
 
-.services-shell::before,
+.services-shell::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -155px;
+  right: -125px;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
 .services-shell::after {
-  display: none;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -180px;
+  left: -150px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: rgba(255, 41, 41, 0.05);
 }
 
 
-/* Tjänsternas rubrik */
+/* =========================================================
+   RUBRIKOMRÅDE
+   ========================================================= */
 
 .services-heading {
   position: relative;
-  max-width: 780px;
-  display: block;
-  margin: 0 auto 52px;
-  padding: 0;
-  border: 0;
-  text-align: center;
+  z-index: 1;
+  max-width: none;
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  align-items: end;
+  gap: 55px;
+  margin: 0 0 48px;
+  padding: 0 0 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: left;
 }
 
 .services-heading::before {
   content: "";
-  position: static;
-  width: 52px;
-  height: 4px;
-  display: block;
-  margin: 0 auto 20px;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100px;
+  height: 3px;
   border-radius: 999px;
   background: var(--red);
 }
 
 .services-heading .overline {
-  margin-bottom: 12px;
-  color: var(--red);
+  margin-bottom: 13px;
+  color: #ff9696;
 }
 
 .services-heading h2 {
-  max-width: 760px;
-  margin: 0 auto 18px;
-  color: var(--black);
+  max-width: 670px;
+  margin-bottom: 0;
+  color: var(--white);
 }
 
 .services-heading > p:last-child {
-  max-width: 640px;
-  margin: 0 auto;
-  color: var(--gray);
-  font-size: 16px;
+  max-width: 450px;
+  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 15px;
   line-height: 1.75;
 }
 
 
-/* Tjänsternas rutnät */
+/* =========================================================
+   TJÄNSTERNAS RUTNÄT
+   ========================================================= */
 
 .service-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
-  gap: 20px;
+  gap: 16px;
 }
 
 
-/* Alla kort, även kortet med klassen featured */
+/* Återställ eventuella gamla bento-bredder */
+
+.service-card:nth-child(1),
+.service-card:nth-child(2),
+.service-card:nth-child(3),
+.service-card:nth-child(4),
+.service-card:nth-child(5),
+.service-card:nth-child(6) {
+  grid-column: auto;
+}
+
+
+/* =========================================================
+   ALLA TJÄNSTEKORT
+   ========================================================= */
 
 .service-card,
 .service-card.featured {
   position: relative;
   min-width: 0;
-  min-height: 255px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  min-height: 175px;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-content: center;
+  column-gap: 21px;
   overflow: hidden;
-  padding: 32px;
-  border: 1px solid var(--border);
-  border-radius: 22px;
+  padding: 29px 66px 29px 29px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 19px;
   color: var(--black);
   background: var(--white);
-  box-shadow:
-    0 12px 34px rgba(45, 20, 20, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
@@ -650,68 +709,84 @@ p {
 }
 
 
-/* Samma röda linje på samtliga kort */
+/* Röd linje till vänster */
 
 .service-card::before,
 .service-card.featured::before {
   content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: auto;
+  top: 20px;
+  bottom: 20px;
   left: 0;
-  width: 100%;
-  height: 4px;
+  width: 4px;
+  height: auto;
   display: block;
-  border-radius: 0;
+  border-radius: 0 999px 999px 0;
   background: var(--red);
   transform: none;
+  transition:
+    width 0.25s ease,
+    top 0.25s ease,
+    bottom 0.25s ease;
 }
 
 
-/* Samma dekorativa cirkel på samtliga kort */
+/* Dekorativ pil */
 
 .service-card::after,
 .service-card.featured::after {
-  content: "";
+  content: "↗";
   position: absolute;
-  top: -42px;
-  right: -42px;
+  top: 23px;
+  right: 23px;
   bottom: auto;
-  width: 125px;
-  height: 125px;
-  display: block;
-  border: 0;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--red-light);
   border-radius: 50%;
+  color: var(--red);
   background: var(--red-soft);
   opacity: 1;
+  font-size: 15px;
+  font-weight: 800;
   transition:
-    transform 0.3s ease,
-    background 0.3s ease;
+    transform 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease;
 }
 
 
-/* Samma hover på samtliga kort */
+/* Samma hover på alla kort */
 
 .service-card:hover,
 .service-card.featured:hover {
-  transform: translateY(-7px);
-  border-color: rgba(255, 41, 41, 0.35);
+  transform: translateY(-5px);
+  border-color: rgba(255, 41, 41, 0.45);
   color: var(--black);
-  background: var(--white);
-  box-shadow:
-    0 24px 50px rgba(50, 20, 20, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  background: #fffafa;
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover::before,
+.service-card.featured:hover::before {
+  top: 0;
+  bottom: 0;
+  width: 6px;
 }
 
 .service-card:hover::after,
 .service-card.featured:hover::after {
-  transform: scale(1.18);
-  background: var(--red-light);
+  transform: rotate(45deg);
+  color: var(--white);
+  background: var(--red);
 }
 
 
-/* Tjänstenummer */
+/* =========================================================
+   TJÄNSTENUMMER
+   ========================================================= */
 
 .number,
 .featured .number,
@@ -720,32 +795,43 @@ p {
   z-index: 2;
   top: auto;
   left: auto;
-  width: 50px;
-  height: 50px;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 58px;
+  height: 58px;
   display: grid;
   place-items: center;
-  align-self: flex-start;
-  margin: 0 0 27px;
+  align-self: center;
+  margin: 0;
   padding: 0;
   border: 1px solid rgba(255, 41, 41, 0.15);
-  border-radius: 15px;
+  border-radius: 17px;
   color: var(--red);
-  background: var(--red-soft);
+  background:
+    linear-gradient(
+      145deg,
+      var(--red-soft),
+      var(--red-light)
+    );
   box-shadow: none;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 0;
 }
 
 
-/* Tjänsternas rubriker */
+/* =========================================================
+   TJÄNSTETEXT
+   ========================================================= */
 
 .service-card h3,
 .service-card.featured h3 {
   position: relative;
   z-index: 2;
+  grid-column: 2;
+  grid-row: 1;
   max-width: none;
-  margin: 0 0 11px;
+  margin: 0 0 7px;
   color: var(--black);
   font-size: 21px;
   font-weight: 800;
@@ -753,21 +839,141 @@ p {
   letter-spacing: -0.02em;
 }
 
-
-/* Tjänsternas beskrivningar */
-
 .service-card p,
 .service-card.featured p {
   position: relative;
   z-index: 2;
+  grid-column: 2;
+  grid-row: 2;
   max-width: none;
   margin: 0;
   padding: 0;
   color: var(--gray);
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
+
+/* =========================================================
+   SURFPLATTA
+   ========================================================= */
+
+@media (max-width: 960px) {
+  .services-shell {
+    padding: 50px;
+  }
+
+  .services-heading {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .services-heading > p:last-child {
+    max-width: 640px;
+    margin-bottom: 0;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card,
+  .service-card.featured {
+    min-height: 165px;
+  }
+}
+
+
+/* =========================================================
+   MOBIL
+   ========================================================= */
+
+@media (max-width: 680px) {
+  .services-shell {
+    padding: 39px 22px;
+    border-radius: 26px;
+  }
+
+  .services-heading {
+    margin-bottom: 34px;
+    padding-bottom: 26px;
+  }
+
+  .service-grid {
+    gap: 13px;
+  }
+
+  .service-card,
+  .service-card.featured {
+    min-height: auto;
+    grid-template-columns: 50px minmax(0, 1fr);
+    column-gap: 16px;
+    padding: 24px 53px 24px 22px;
+    border-radius: 17px;
+  }
+
+  .number,
+  .featured .number,
+  .service-card.featured .number {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+  }
+
+  .service-card h3,
+  .service-card.featured h3 {
+    font-size: 19px;
+  }
+
+  .service-card p,
+  .service-card.featured p {
+    font-size: 13px;
+  }
+
+  .service-card::after,
+  .service-card.featured::after {
+    top: 18px;
+    right: 17px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* =========================================================
+   LITEN MOBIL
+   ========================================================= */
+
+@media (max-width: 430px) {
+  .services-shell {
+    padding: 32px 17px;
+  }
+
+  .service-card,
+  .service-card.featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 13px;
+    padding: 23px 50px 23px 20px;
+  }
+
+  .number,
+  .featured .number,
+  .service-card.featured .number {
+    grid-column: 1;
+    grid-row: auto;
+    width: 46px;
+    height: 46px;
+  }
+
+  .service-card h3,
+  .service-card.featured h3,
+  .service-card p,
+  .service-card.featured p {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
 
 /* =========================================================
    GALLERI

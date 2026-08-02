@@ -1,11 +1,11 @@
 // ======================================================
 // RONNI MÅLERI – SCRIPT.JS
-// Place this file in the same folder as index.html
+// Lägg filen i samma mapp som index.html
 // ======================================================
 
 
 // -----------------------
-// MOBILE MENU
+// MOBILMENY
 // -----------------------
 
 const menuButton = document.querySelector(".menu-button");
@@ -13,16 +13,16 @@ const menu = document.querySelector(".menu");
 
 if (menuButton && menu) {
   menuButton.addEventListener("click", () => {
-    const isOpen = menu.classList.toggle("open");
+    const open = menu.classList.toggle("open");
 
-    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute("aria-expanded", String(open));
     menuButton.setAttribute(
       "aria-label",
-      isOpen ? "Stäng meny" : "Öppna meny"
+      open ? "Stäng meny" : "Öppna meny"
     );
   });
 
-  // Close the menu when a navigation link is clicked
+  // Stäng menyn när användaren klickar på en länk
   document.querySelectorAll(".menu a").forEach((link) => {
     link.addEventListener("click", () => {
       menu.classList.remove("open");
@@ -31,7 +31,7 @@ if (menuButton && menu) {
     });
   });
 
-  // Close the menu when clicking outside it
+  // Stäng menyn när användaren klickar utanför den
   document.addEventListener("click", (event) => {
     const clickedInsideMenu = menu.contains(event.target);
     const clickedMenuButton = menuButton.contains(event.target);
@@ -46,7 +46,7 @@ if (menuButton && menu) {
 
 
 // -----------------------
-// CURRENT YEAR IN FOOTER
+// AKTUELLT ÅR I SIDFOTEN
 // -----------------------
 
 const yearElement = document.querySelector("#year");
@@ -57,7 +57,7 @@ if (yearElement) {
 
 
 // -----------------------
-// IMAGE GALLERY / LIGHTBOX
+// BILDGALLERI / LIGHTBOX
 // -----------------------
 
 const lightbox = document.querySelector(".lightbox");
@@ -69,13 +69,16 @@ if (lightbox) {
   const galleryItems = document.querySelectorAll(".gallery-item");
 
   function openLightbox(imageSource, imageTitle) {
+    if (!lightboxImage || !lightboxTitle) {
+      return;
+    }
+
     lightboxImage.src = imageSource;
     lightboxImage.alt = imageTitle;
     lightboxTitle.textContent = imageTitle;
 
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden", "false");
-
     document.body.classList.add("no-scroll");
 
     if (closeButton) {
@@ -86,12 +89,16 @@ if (lightbox) {
   function closeLightbox() {
     lightbox.classList.remove("open");
     lightbox.setAttribute("aria-hidden", "true");
-
     document.body.classList.remove("no-scroll");
 
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-    lightboxTitle.textContent = "";
+    if (lightboxImage) {
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+    }
+
+    if (lightboxTitle) {
+      lightboxTitle.textContent = "";
+    }
   }
 
   galleryItems.forEach((item) => {
@@ -109,14 +116,14 @@ if (lightbox) {
     closeButton.addEventListener("click", closeLightbox);
   }
 
-  // Close when clicking on the dark background
+  // Stäng bildvisaren när användaren klickar på bakgrunden
   lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) {
       closeLightbox();
     }
   });
 
-  // Close with the Escape key
+  // Stäng bildvisaren med Escape
   document.addEventListener("keydown", (event) => {
     if (
       event.key === "Escape" &&
@@ -129,7 +136,7 @@ if (lightbox) {
 
 
 // -----------------------
-// SMOOTH SCROLL FOR LINKS
+// MJUK RULLNING TILL SEKTIONER
 // -----------------------
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -140,12 +147,12 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
       return;
     }
 
-    const target = document.querySelector(targetId);
+    const targetElement = document.querySelector(targetId);
 
-    if (target) {
+    if (targetElement) {
       event.preventDefault();
 
-      target.scrollIntoView({
+      targetElement.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
